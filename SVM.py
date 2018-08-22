@@ -3,7 +3,9 @@ from Preprocess import *
 
 best_score = 0
 i = 0
+a = ['MinMaxScalar', 'Normalizer', 'RobustScalar', 'StandardScalar']
 while i < 4:
+    print('\nFor', a[i], ' these are the values of accuracy:')
     for g in [0.01, 0.1, 1, 10]:
         for c in [0.01, 0.1, 1, 10]:
             svm = SVR(gamma=g, C=c)
