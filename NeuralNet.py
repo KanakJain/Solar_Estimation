@@ -5,9 +5,9 @@ i = 0
 best_score = 0
 a = ['MinMaxScalar', 'Normalizer', 'RobustScalar', 'StandardScalar']
 while i < 4:
-    print('For', a[i], ' the value of accuracy is:')
+    print('For', a[i], 'the value of accuracy is:')
     for j in range(2,  100):
-        nn = MLPRegressor(hidden_layer_sizes=j, activation='logistic', max_iter=400)
+        nn = MLPRegressor(hidden_layer_sizes=j, activation='relu', solver='sgd', max_iter=600)
         nn.fit(X_train_[i], y_train)
         s = nn.score(X_valid_[i], y_valid)
         if s > best_score:

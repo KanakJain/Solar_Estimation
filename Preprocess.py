@@ -6,8 +6,9 @@ from sklearn.preprocessing import RobustScaler
 from sklearn.preprocessing import Normalizer
 
 
-X = pd.read_csv('Features.csv')
-y = pd.read_csv('Responses.csv')
+df = pd.read_csv('NSRDB DATA.csv')
+X = df[['Glob irrad', 'Temp', 'RH', 'Rain Fall', 'WD', 'WS']]
+y = df[['Def_irrad']]
 X_trainval, X_test, y_trainval, y_test = train_test_split(X, y.values.ravel(), random_state=0)
 X_train, X_valid, y_train, y_valid = train_test_split(X_trainval, y_trainval, random_state=0)
 MMS = MinMaxScaler()   # Take as 0 index
